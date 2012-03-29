@@ -8,15 +8,22 @@
 #include<vector>
 using namespace std;
 
-int W(-1), T(-1), count(0);         // Width, Threshold, and count
+int W(-1), T(-1), n(0);         // Width, Threshold, and n
+vector<string> image;           // store image as 2D string vector
 
-void main() {
+int main() {
+    cin >> W;
     while (W != 0) {
-        ++count;                    // increment image count
-        cin >> W;
-        cin >> T;
-        cout << "Image " << count << ":" << endl;
-        //RECURSION!
+        image.resize(W);        // size image vector to Width
+        ++n;                    // increment image count
+        cin >> T;               // find Threshold
+        for (vector<double>::size_type i = 0; i < W; i++) {
+            cin >> image[i];
+        }
+        cout << "Image " << n << ":" << endl;
+        //lossy(W, T, image);//RECURSION!
+        image.clear();          // clears image for next loop
+        cin >> W;               // finds next width(0 for exit)
     }
     return 0;
 }
