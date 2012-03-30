@@ -38,6 +38,19 @@ void lossy(double rl, double rh,    // row bounds (low/high)
             }
         }
     }
+    else if (((1-(sum/((rh-rl)*(ch-cl))))*100) > T) {    // if % of 0s > Threshold
+        for (double r = rl; r < rh; r++) {
+            for (double c = cl; c < ch; c++) {
+                image[r][c] = '0';  // change portion of image to 0s
+            }
+        }
+    }
+    else {
+        lossy(((rh-rl)/2), rh, cl, ((ch-cl)/2), T, image);  // top-right
+        lossy(rl, ((rh-rl)/2), cl, ((ch-cl)/2), T, image);  // top-left
+        lossy(rl, ((rh-rl)/2), ((ch-cl)/2), ch, T, image);  // bottom-left
+        lossy(((rh-rl)/2), rh, ((ch-cl)/2), ch, T, image);  // bottom-right
+    }
 }
 
 int main() {
@@ -51,6 +64,9 @@ int main() {
         }
         cout << "Image " << n << ":" << endl;
         lossy(0, W, 0, W, T, image);     // RECURSION!
+        for (int r = 0; r < W; r++) {
+            cout << image[r] << endl;
+        }
         image.clear();              // clears image for next loop
         cin >> W;                   // finds next width(0 for exit)
     }

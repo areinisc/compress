@@ -18,3 +18,4 @@ Comments:
     * correctly takes in vector of strings
     * working on recursion
     * need to put in the other four cases for method lossy
+    * ok, test case where nothing changes works, but re-writes cause seg-faults... looking into it
