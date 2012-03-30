@@ -16,3 +16,5 @@ Comments:
     * fixed segfault issue by resizing vector image before filling it
     * correct output order, no recursive function yet
     * correctly takes in vector of strings
+    * working on recursion
+    * need to put in the other four cases for method lossy

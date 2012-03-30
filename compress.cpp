@@ -11,21 +11,6 @@ using namespace std;
 double W(-1), T(-1), n(0);          // Width, Threshold, and n
 vector<string> image;               // store image as string vector
 
-void lossy(double rl, double rh,    // row bounds (low/high)
-            double cl, double ch,   // column bounds (low/high)
-            const double& T,        // compression threshold
-            vector<string>& image   // image as string vector
-        ) {
-    double sum = imagesum(rl, rh, cl, ch, image);   // sum for this portion of image
-    if (((sum/((rh-rl)*(ch-cl)))*100) > T) {    // if % of 1s > Threshold
-        for (double r = rl; r < rh; r++) {
-            for (double c = cl; c < ch; c++) {
-                image[r][c] = "1";  // change portion of image to 1s
-            }
-        }
-    }
-}
-
 double imagesum(int rl, int rh,     // row bounds (low/high)
                 int cl, int ch,     // column bounds (low/high)
                 vector<string>& image // image as string vector
@@ -38,6 +23,21 @@ double imagesum(int rl, int rh,     // row bounds (low/high)
         }
     }
     return sum;
+}
+
+void lossy(double rl, double rh,    // row bounds (low/high)
+            double cl, double ch,   // column bounds (low/high)
+            const double& T,        // compression threshold
+            vector<string>& image   // image as string vector
+        ) {
+    double sum = imagesum(rl, rh, cl, ch, image);   // sum for this portion of image
+    if (((sum/((rh-rl)*(ch-cl)))*100) > T) {    // if % of 1s > Threshold
+        for (double r = rl; r < rh; r++) {
+            for (double c = cl; c < ch; c++) {
+                image[r][c] = '1';  // change portion of image to 1s
+            }
+        }
+    }
 }
 
 int main() {
