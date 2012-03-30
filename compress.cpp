@@ -64,10 +64,10 @@ void lossy(double rl, double rh,        // row bounds (low/high)
         }
     }
     else {
-        lossy(rl, ((rh-rl)/2), (cl+((ch-cl)/2)), ch, T, image);     // top-right
-        lossy(rl, ((rh-rl)/2), cl, ((ch-cl)/2), T, image);          // top-left
-        lossy((rl+((rh-rl)/2)), rh, cl, ((ch-cl)/2), T, image);     // bottom-left
-        lossy((rl+((rh-rl)/2)), rh, (cl+((ch-cl)/2)), ch, T, image);// bottom-right
+        lossy(rl, (rh-((rh-rl)/2)), (cl+((ch-cl)/2)), ch, T, image);    // top-right
+        lossy(rl, (rh-((rh-rl)/2)), cl, (ch-((ch-cl)/2)), T, image);    // top-left
+        lossy((rl+((rh-rl)/2)), rh, cl, (ch-((ch-cl)/2)), T, image);    // bottom-left
+        lossy((rl+((rh-rl)/2)), rh, (cl+((ch-cl)/2)), ch, T, image);    // bottom-right
     }
 }
 
