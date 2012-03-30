@@ -50,13 +50,13 @@ void lossy(double rl, double rh,    // row bounds (low/high)
     }
     else {
         cout<< "rl:\t"<<rl<<"\trh:\t"<<rh<<"\tcl:\t"<<cl<<"\tch:\t"<<ch<<endl;
-        lossy(rl, ((rh-rl)/2), ((ch-cl)/2), ch, T, image);  // bottom-left
+        lossy(rl, ((rh-rl)/2), (cl+((ch-cl)/2)), ch, T, image);  // top-right
         cout<<"topright"<<endl;
         lossy(rl, ((rh-rl)/2), cl, ((ch-cl)/2), T, image);  // top-left
         cout<<"topleft"<<endl;
-        lossy(((rh-rl)/2), rh, cl, ((ch-cl)/2), T, image);  // top-right
+        lossy((rl+((rh-rl)/2)), rh, cl, ((ch-cl)/2), T, image);  // bottom-left
         cout<< "bottomleft"<<endl;
-        lossy(((rh-rl)/2), rh, ((ch-cl)/2), ch, T, image);  // bottom-right
+        lossy((rl+((rh-rl)/2)), rh, (cl+((ch-cl)/2)), ch, T, image);  // bottom-right
         cout<<"bottomright"<<endl;
     }
 }
