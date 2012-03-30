@@ -1,26 +1,27 @@
-  ____                                        
- / ___|___  _ __ ___  _ __  _ __ ___  ___ ___ 
-| |   / _ \| '_ ` _ \| '_ \| '__/ _ \/ __/ __|
-| |__| (_) | | | | | | |_) | | |  __/\__ \__ \
- \____\___/|_| |_| |_| .__/|_|  \___||___/___/
-                     |_|                      
-Author(s): Alex Reinisch, Nick Walker
-Date(s): 28-02 March-April 2012
+ ____     _____            ____    ____    ____    ____    ____       
+/\  _`\  /\  __`\  /'\_/`\/\  _`\ /\  _`\ /\  _`\ /\  _`\ /\  _`\     
+\ \ \/\_\\ \ \/\ \/\      \ \ \L\ \ \ \L\ \ \ \L\_\ \,\L\_\ \,\L\_\   
+ \ \ \/_/_\ \ \ \ \ \ \__\ \ \ ,__/\ \ ,  /\ \  _\L\/_\__ \\/_\__ \   
+  \ \ \L\ \\ \ \_\ \ \ \_/\ \ \ \/  \ \ \\ \\ \ \L\ \/\ \L\ \/\ \L\ \ 
+   \ \____/ \ \_____\ \_\\ \_\ \_\   \ \_\ \_\ \____/\ `\____\ `\____\
+    \/___/   \/_____/\/_/ \/_/\/_/    \/_/\/ /\/___/  \/_____/\/_____/
+                                                                      
+
+Compress
+Nick Walker and Alex Reinisch
+30 March 2012
 
 Summary:
-    This program takes in an image described by ones and zeros and recursively compresses it to the degree specified. It tries to blanket the image with the dominant color in each quadrant (recursively).
+	This program takes images in the form of a bitmap (represented by one and zeros) and compresses them according to a recursive function that tries to fill in the dominant colors according to a given color threshold percentage
 
 Partnership:
-    
+	Alex and I worked out the best way to complete the assignment by reading through the assignment explanation together.  Then, Alex coded the program on his computer while I watched and continued to look out for any potential bugs or problems with our methods. We worked through the debugging process together.
 
 Comments:
-    * repo up, putting things together
-    * working up skeleton code
-    * fixed segfault issue by resizing vector image before filling it
-    * correct output order, no recursive function yet
-    * correctly takes in vector of strings
-    * working on recursion
-    * need to put in the other four cases for method lossy
-    * ok, test case where nothing changes works, but re-writes cause seg-faults... looking into it
-    * YES!!! works on given example input
-    * added documentation and tried to pretty it up a bit
+	Segfault issues
+	Segfaults solved by resizing vectors
+	Output works, no working function
+	Input works, no recursion
+	More cases needed
+	Segfaults caused by inputs that need to be changed
+	Example outputs working
