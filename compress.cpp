@@ -31,25 +31,33 @@ void lossy(double rl, double rh,    // row bounds (low/high)
             vector<string>& image   // image as string vector
         ) {
     double sum = imagesum(rl, rh, cl, ch, image);   // sum for this portion of image
-    if (((sum/((rh-rl)*(ch-cl)))*100) > T) {    // if % of 1s > Threshold
+    cout << "summed" <<endl;
+    if (((sum/((rh-rl)*(ch-cl)))*100) >= T) {    // if % of 1s > Threshold
         for (double r = rl; r < rh; r++) {
             for (double c = cl; c < ch; c++) {
                 image[r][c] = '1';  // change portion of image to 1s
             }
         }
+    cout << "yep, 1s" <<endl;
     }
-    else if (((1-(sum/((rh-rl)*(ch-cl))))*100) > T) {    // if % of 0s > Threshold
+    else if (((1-(sum/((rh-rl)*(ch-cl))))*100) >= T) {    // if % of 0s > Threshold
         for (double r = rl; r < rh; r++) {
             for (double c = cl; c < ch; c++) {
                 image[r][c] = '0';  // change portion of image to 0s
             }
         }
+    cout << "yep, 0s"<< endl;
     }
     else {
-        lossy(((rh-rl)/2), rh, cl, ((ch-cl)/2), T, image);  // top-right
-        lossy(rl, ((rh-rl)/2), cl, ((ch-cl)/2), T, image);  // top-left
+        cout<< "rl:\t"<<rl<<"\trh:\t"<<rh<<"\tcl:\t"<<cl<<"\tch:\t"<<ch<<endl;
         lossy(rl, ((rh-rl)/2), ((ch-cl)/2), ch, T, image);  // bottom-left
+        cout<<"topright"<<endl;
+        lossy(rl, ((rh-rl)/2), cl, ((ch-cl)/2), T, image);  // top-left
+        cout<<"topleft"<<endl;
+        lossy(((rh-rl)/2), rh, cl, ((ch-cl)/2), T, image);  // top-right
+        cout<< "bottomleft"<<endl;
         lossy(((rh-rl)/2), rh, ((ch-cl)/2), ch, T, image);  // bottom-right
+        cout<<"bottomright"<<endl;
     }
 }
 
