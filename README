@@ -8,7 +8,10 @@ Author(s): Alex Reinisch, Nick Walker
 Date(s): 28-02 March-April 2012
 
 Summary:
-    No functionality yet.
+    This program takes in an image described by ones and zeros and recursively compresses it to the degree specified. It tries to blanket the image with the dominant color in each quadrant (recursively).
+
+Partnership:
+    
 
 Comments:
     * repo up, putting things together
@@ -20,3 +23,4 @@ Comments:
     * need to put in the other four cases for method lossy
     * ok, test case where nothing changes works, but re-writes cause seg-faults... looking into it
     * YES!!! works on given example input
+    * added documentation and tried to pretty it up a bit
